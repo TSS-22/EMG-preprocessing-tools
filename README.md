@@ -37,7 +37,7 @@ IMPORTANT: The algorithm needs a 0.5 seconds of signal without any muscle activi
 
 /!\ WARNING /!\\
 
-If your HD EMG signals are contaminated by ECG artifacts, it is vividely recommended to filter them out first before using this filter. Indeed the chance of successful use dramatically lower if there is ECG contamination of the signals.
+If your HD EMG signals are contaminated by ECG artifacts, it is vividly recommended to filter them out first before using this filter. Indeed the chance of successful use dramatically lower if there is ECG contamination of the signals.
 
 ### Example
 Before:
