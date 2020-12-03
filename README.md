@@ -2,13 +2,11 @@
 Functions to denoise High Density EMG signals.
 
 ## Table of Contents
-* [EMG Contamination]
-* [Principle]
-* [Movement artifact, PLI, WGI contamination]
-* [Principle]
-* [Technologies]
-* [Setup]
-* [Sources]
+* [EMG Contamination](#EMG Contamination)
+* [Movement artifact, PLI, WGI contamination](#Movement artifact, PLI, WGI contamination)
+* [Technologies](#Technologies)
+* [Setup](#Setup)
+* [Sources](#Sources)
 
 ## EMG Contamination
 This ECG-artifact filter is based on the paper Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848. DOI: 10.1016/j.medengphy.2010.05.007 and on "Rectification and non-linear pre-processing of EMG signals for cortico-muscular analysis." from Myers et al. DOI: 10.1016/s0165-0270(03)00004-9 for the pre-processing of the HD EMG.
@@ -16,6 +14,13 @@ This ECG-artifact filter is based on the paper Mak, J. N., Hu, Y., & Luk, K. D. 
 The following function remove ECG contamination from High Density EMG signals. This is the matlab implementation of the work described in "Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848." With the following changes:
 - A moving average filter has been added to the pre processing step in order to smooth out potential artifacts on the ECG ICA component that could appear in field conditions. Those artifact would be detected as potential ECG spike and would teherefor make the component fail the RR interval check.
 - To improve reliability of the RR interval check, it had been added a 10% margin of error, meaning at least 90% of the peak of the tested component should meet the RR interval check requirement.
+
+### Example
+Before:
+![Before signals](./Miscellaneous/img/rawSig.png)
+
+After:
+![After signals](./Miscellaneous/img/ecgFilt.png)
 
 ### Principle
 - Hilbert transform
@@ -30,6 +35,13 @@ This filter remove movement artifact, power line interference and white gaussian
 
 /!\ WARNING /!\
 If your HD EMG signals are contaminated by ECG artifacts, it is vividely recommended to filter them out first before using this filter. Indeed the chance of successful use dramatically lower if there is ECG contamination of the signals.
+
+### Example
+Before:
+![Before signals](./Miscellaneous/img/ecgFilt.png)
+
+After:
+![After signals](./Miscellaneous/img/ccaFilt.png)
 
 ### Principle
 - Canonical Correlation Analysis to extract linear combination of the HD EMG signals (CCA components)
