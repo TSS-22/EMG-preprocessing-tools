@@ -34,6 +34,7 @@ After:
 This filter remove movement artifact, power line interference and white gaussian noise. It is based on the paper "Al Harrach, M., Boudaoud, S., Hassan, M., Ayachi, F. S., Gamet, D., Grosset, J. F., & Marin, F. (2017). Denoising of HD-sEMG signals using canonical correlation analysis. Medical & biological engineering & computing, 55(3), 375-388."
 
 /!\ WARNING /!\\
+
 If your HD EMG signals are contaminated by ECG artifacts, it is vividely recommended to filter them out first before using this filter. Indeed the chance of successful use dramatically lower if there is ECG contamination of the signals.
 
 ### Example
