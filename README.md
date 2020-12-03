@@ -2,8 +2,8 @@
 Functions to denoise High Density EMG signals.
 
 ## Table of Contents
-* [EMG Contamination](#EMG Contamination)
-* [Movement artifact, PLI, WGI contamination](#Movement artifact, PLI, WGI contamination)
+* [EMG Contamination](#EMG-Contamination)
+* [Movement artifact, PLI, WGI contamination](#Movement-artifact,-PLI,-WGI-contamination)
 * [Technologies](#Technologies)
 * [Setup](#Setup)
 * [Sources](#Sources)
