@@ -1,5 +1,6 @@
 function [EMG_proper, ECG_proper] = ECGartRm(sigToFilt, fqAcq)
 %% Based on Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848.
+% Contact: lucien.robinault@protonmail.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INPUTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,7 +22,7 @@ function [EMG_proper, ECG_proper] = ECGartRm(sigToFilt, fqAcq)
 EMGvsECG = zeros(rowIcaSig, 1);
 
 % Pre processing based on
-% Myers, L. ., Lowery, M., O’Malley, M., Vaughan, C. ., Heneghan, C., St Clair Gibson, A., … Sreenivasan, R. (2003). Rectification and non-linear pre-processing of EMG signals for cortico-muscular analysis. Journal of Neuroscience Methods, 124(2), 157–165. doi:10.1016/s0165-0270(03)00004-9 
+% Myers, L. ., Lowery, M., Oâ€™Malley, M., Vaughan, C. ., Heneghan, C., St Clair Gibson, A., â€¦ Sreenivasan, R. (2003). Rectification and non-linear pre-processing of EMG signals for cortico-muscular analysis. Journal of Neuroscience Methods, 124(2), 157â€“165. doi:10.1016/s0165-0270(03)00004-9 
 % as seen in Mak et al., 2010
 for i=1:1:rowIcaSig
     % Hilbert transform 
@@ -83,7 +84,7 @@ for i = 1:1:rowIcaSig
     % PART 3: Identification of ECG source components
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % 1. Number of peaks:
-    %   (200 BPM/60 s)·d>=|P|>=(40 BPM/60 s)*d
+    %   (200 BPM/60 s)Â·d>=|P|>=(40 BPM/60 s)*d
     %   where |P| indicates the number of elements in the set P, that is
     %   the number of peaks detected,
     %   and d represents the length of source component signal (in second).
