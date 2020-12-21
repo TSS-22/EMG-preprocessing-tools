@@ -7,6 +7,7 @@ Functions to denoise High Density EMG signals.
 * [Technologies](#Technologies)
 * [Setup](#Setup)
 * [Sources](#Sources)
+* [Contact](#Contact)
 
 ## EMG Contamination
 This ECG-artifact filter is based on the paper Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848. DOI: 10.1016/j.medengphy.2010.05.007 and on "Rectification and non-linear pre-processing of EMG signals for cortico-muscular analysis." from Myers et al. DOI: 10.1016/s0165-0270(03)00004-9 for the pre-processing of the HD EMG.
@@ -63,3 +64,5 @@ The filters are matlab function, to run them, just download them then add them t
 - Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848. DOI: 10.1016/j.medengphy.2010.05.007
 - Myers, L. J., Lowery, M., O'malley, M., Vaughan, C. L., Heneghan, C., Gibson, A. S. C., ... & Sreenivasan, R. (2003). Rectification and non-linear pre-processing of EMG signals for cortico-muscular analysis. Journal of neuroscience methods, 124(2), 157-165. DOI: 10.1016/s0165-0270(03)00004-9
 
+## Contact
+lucien.robinault@protonmail.com
