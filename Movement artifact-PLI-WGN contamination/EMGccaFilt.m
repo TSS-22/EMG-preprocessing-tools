@@ -1,6 +1,7 @@
 function EMG_proper = EMGccaFilt(sigToFilter, fqAcq)
 %% Based on Al Harrach, M., Boudaoud, S., Hassan, M., Ayachi, F. S., Gamet, D., Grosset, J. F., & Marin, F. (2017). Denoising of HD-sEMG signals using canonical correlation analysis. Medical & biological engineering & computing, 55(3), 375-388.
-% This function remove movement artifact, white noise (WGN) and power
+% This function remove movement artifact, white noise (WGN) and power line inference (PLI)
+% Contact: lucien.robinault@protonmail.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%/!\IMPORTANT/!\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
