@@ -7,6 +7,7 @@ Functions to denoise High Density EMG signals.
 * [Technologies](#Technologies)
 * [Setup](#Setup)
 * [Sources](#Sources)
+* [Disclaimer](#Disclaimer)
 * [Contact](#Contact)
 
 ## EMG Contamination
@@ -63,6 +64,11 @@ The filters are matlab function, to run them, just download them then add them t
 - Al Harrach, M., Boudaoud, S., Hassan, M., Ayachi, F. S., Gamet, D., Grosset, J. F., & Marin, F. (2017). Denoising of HD-sEMG signals using canonical correlation analysis. Medical & biological engineering & computing, 55(3), 375-388. DOI: 10.1007/s11517-016-1521-x
 - Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848. DOI: 10.1016/j.medengphy.2010.05.007
 - Myers, L. J., Lowery, M., O'malley, M., Vaughan, C. L., Heneghan, C., Gibson, A. S. C., ... & Sreenivasan, R. (2003). Rectification and non-linear pre-processing of EMG signals for cortico-muscular analysis. Journal of neuroscience methods, 124(2), 157-165. DOI: 10.1016/s0165-0270(03)00004-9
+
+## Disclaimer
+The information and tools contained in this repository are provided in good faith and no warranty, representation, statement or undertaking is given regarding any information or tool connected with this repository and any warranty, representation, statement or undertaking whatsoever that may be expressed or implied by statute, custom or otherwise is hereby expressly excluded.
+The use of the tools in this repository and any information in this repository is entirely at the risk of the user.
+Under no other circumstances the author should be liable for any costs, losses, expenses or damages (whether direct or indirect, consequential, special, economic or financial including any loss of profits) whatsoever that may be incurred through the use of any information or tools contained in this repository. This repository may contain inaccurate information. Which the author is under no responsibility to update or correct any such information or to even maintain this repository. Which the author reserves its right to change any information or any part of this repository without notice.
 
 ## Contact
 lucien.robinault@protonmail.com
