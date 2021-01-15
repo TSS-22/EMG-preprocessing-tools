@@ -37,7 +37,7 @@ function EMG_proper = BWfilt(sigToFilt, varargin)
 %     matrix is a tridiagonal, symmetric, positive-definite system it is 
 %     possible to “linearize” the calculus. To do so the equation (16) have
 %     been developed,and the linear system solver “\” has been used to “get rid of”
-%     the standardinverse calculation. This is possible due to the 
+%     the standard inverse calculation. This is possible due to the 
 %     aforementioned specific properties of the system.
 %     More details and explanation can be found in the books from Golub on 
 %     matrix computation.
