@@ -7,6 +7,7 @@ Functions to denoise High Density EMG signals.
 * [Baseline wander filter](#Baseline-wander-filter)
 * [Technologies](#Technologies)
 * [Setup](#Setup)
+* [How to cite](#How-to-cite)
 * [Sources](#Sources)
 * [Disclaimer](#Disclaimer)
 * [Contact](#Contact)
@@ -85,6 +86,9 @@ The project has been developped on MATLAB 2018a 9.4.0.813654, on windows 10 64 b
 
 ## Setup
 The filters are matlab function, to run them, just download them then add them to your matlab path.
+
+## How to cite
+Robinault Lucien (2021). EMG preprocessing tools V1.0.0 (https://github.com/TSS-22/EMG-preprocessing-tools), GitHub. DOI: 10.5281/zenodo.4441389
 
 ## Sources
 - Al Harrach, M., Boudaoud, S., Hassan, M., Ayachi, F. S., Gamet, D., Grosset, J. F., & Marin, F. (2017). Denoising of HD-sEMG signals using canonical correlation analysis. Medical & biological engineering & computing, 55(3), 375-388. DOI: 10.1007/s11517-016-1521-x
