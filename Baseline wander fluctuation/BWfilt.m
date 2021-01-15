@@ -35,8 +35,8 @@ function EMG_proper = BWfilt(sigToFilt, varargin)
 %     This filter uses a matrix inversion of a matrix of the size N*N, thus
 %     being extremely costly memory and computationally wise. Because the 
 %     matrix is a tridiagonal, symmetric, positive-definite system it is 
-%     possible to ìlinearizeî the calculus. To do so the equation (16) have
-%     been developed,and the linear system solver ì\î has been used to ìget rid ofî
+%     possible to ‚Äúlinearize‚Äù the calculus. To do so the equation (16) have
+%     been developed,and the linear system solver ‚Äú\‚Äù has been used to ‚Äúget rid of‚Äù
 %     the standardinverse calculation. This is possible due to the 
 %     aforementioned specific properties of the system.
 %     More details and explanation can be found in the books from Golub on 
