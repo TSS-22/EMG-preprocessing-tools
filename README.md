@@ -63,10 +63,10 @@ Two part of the algorithm are personal implementation and have not been peer rev
 
 ### Example
 Before:
-![Before signals](./Miscellaneous/img/bwFilt.png)
+![Before signals](./Miscellaneous/img/bwFilt1.png)
 
 After:
-![After signals](./Miscellaneous/img/bwFiltafter.png)
+![After signals](./Miscellaneous/img/bwFiltafter2.png)
 
 ### Principle
 The filter works by minimizing the variability of the signal by minimizing it quadratic variation, a measure of the signal variability. Baseline wander is estimated solving a constrained convex optimization problem where quadratic variation enters as a constraint.
