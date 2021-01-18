@@ -1,5 +1,7 @@
-<h1>EMG-denoising</h1>
-Functions to denoise High Density EMG signals.
+<h1>EMG preprocessing tools</h1>
+<p>
+  Functions to denoise High Density EMG signals.
+</p>
 
 <ul>Table of Contents</h2>
   <li>[EMG Contamination](#EMG-Contamination)</li>
@@ -18,11 +20,12 @@ Functions to denoise High Density EMG signals.
   </p>
   <p>
     The following function remove ECG contamination from High Density EMG signals. This is the matlab implementation of the work described in "Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848." With the following changes:
-    <ul>
+  </p>    
+  <ul>
       <li>A moving average filter has been added to the pre processing step in order to smooth out potential artifacts on the ECG ICA component that could appear in field conditions. Those artifact would be detected as potential ECG spike and would teherefor make the component fail the RR interval check.</li>
       <li>To improve reliability of the RR interval check, it had been added a 10% margin of error, meaning at least 90% of the peak of the tested component should meet the RR interval check requirement.</li>
     </ul>
-  </p>
+
 
 <h3>Example</h3>
 <dl>
