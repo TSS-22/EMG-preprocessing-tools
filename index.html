@@ -4,7 +4,7 @@
 	<title>CSS Template</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./Miscellaneous/style.css">
 </head>
 <body>
 	<header>
@@ -13,18 +13,18 @@
 	</header>
 	<nav>
 		<ul>Table of Contents</h2>
-			<li>[EMG Contamination](#EMG-Contamination)</li>
-			<li>[Movement artifact, PLI, WGI contamination](#Movement-artifact,-PLI,-WGI-contamination)</li>
-			<li>[Baseline wander filter](#Baseline-wander-filter)</li>
-			<li>[Technologies](#Technologies)</li>
-			<li>[Setup](#Setup)</li>
-			<li>[How to cite](#How-to-cite)</li>
-			<li>[Sources](#Sources)</li>
-			<li>[Disclaimer](#Disclaimer)</li><li>[Contact](#Contact)</li>
+			<li><a href="#EMG_Contamination">EMG Contamination</a></li>
+			<li><a href="#MA_PLI_WGI_WGI">Movement artifact, PLI, WGI contamination</a></li>
+			<li><a href="#Baseline_wander_fluctuation">Baseline wander filter</a></li>
+			<li><a href="#Technologies">Technologies</a></li>
+			<li><a href="#Setup">Setup</a></li>
+			<li><a href="#Sources">How to cite</a></li>
+			<li><a href="#Disclaimer">Sources</a></li>
+			<li><a href="#Contact">Disclaimer</a></li>
 		</ul>
 	</nav>
 	<article>
-		<h2>EMG Contamination</h2>
+		<h2 id="EMG_Contamination">EMG Contamination</h2>
 		<p>
 			This ECG-artifact filter is based on the paper Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848. DOI: 10.1016/j.medengphy.2010.05.007 and on "Rectification and non-linear pre-processing of EMG signals for cortico-muscular analysis." from Myers et al. DOI: 10.1016/s0165-0270(03)00004-9 for the pre-processing of the HD EMG.
 		</p>
@@ -54,7 +54,7 @@
 			<li>Separation of the EMG and ECG sources and reconstruction of the signals</li>
 		</ul>
 
-		<h2>Movement artifact, PLI, WGI contamination</h2>
+		<h2 id="MA_PLI_WGI_WGI">Movement artifact, PLI, WGI contamination</h2>
 		<p>
 			This filter remove movement artifact, power line interference and white gaussian noise. It is based on the paper "Al Harrach, M., Boudaoud, S., Hassan, M., Ayachi, F. S., Gamet, D., Grosset, J. F., & Marin, F. (2017). Denoising of HD-sEMG signals using canonical correlation analysis. Medical & biological engineering & computing, 55(3), 375-388."
 		</p>
@@ -89,7 +89,7 @@
 			</ul>
 		</p>
 
-		<h2>Baseline wander fluctuation</h2>
+		<h2 id="Baseline_wander_fluctuation">Baseline wander fluctuation</h2>
 		<p>
 			This filter remove baseline wander also called baseline fluctuation. It is based on the paper "Fasano, A., & Villani, V. (2014). Baseline wander removal for bioelectrical signals by quadratic variation reduction. Signal Processing, 99, 48-57." for the filter and is using sparsity measure from "Hurley, N., & Rickard, S. (2009). Comparing measures of sparsity. IEEE Transactions on Information Theory, 55(10), 4723-4741."
 			Two part of the algorithm are personal implementation and have not been peer reviewed:
@@ -124,23 +124,23 @@
 		<dl>
 			<dt>Optimization:</dt>
 			<dd>
-				-This filter uses a matrix inversion of a matrix of the size N\*N, thus being extremely costly memory and computationally wise. Because the matrix is a tridiagonal, symmetric, positive-definite system it is possible to “linearize” the calculus. To do so the equation (16) have been developed, and the linear system solver “\\” has been used to “get rid of” the standard inverse calculation. This is possible due to the aforementioned specific properties of the system. More details and explanation can be found in the books from Golub matrix computation. Nonetheless, clear optimization process not being detailed in Fasano et al, 2014, the optimization process implemented here might not be the one used by the author of the article.
+				This filter uses a matrix inversion of a matrix of the size N\*N, thus being extremely costly memory and computationally wise. Because the matrix is a tridiagonal, symmetric, positive-definite system it is possible to “linearize” the calculus. To do so the equation (16) have been developed, and the linear system solver “\\” has been used to “get rid of” the standard inverse calculation. This is possible due to the aforementioned specific properties of the system. More details and explanation can be found in the books from Golub matrix computation. Nonetheless, clear optimization process not being detailed in Fasano et al, 2014, the optimization process implemented here might not be the one used by the author of the article.
 			</dd>
 
 			<dt>Gradient descent:</dt>
 			<dd>
-				-The process to find the optimal lambda for the filter is not detailed in Fasano et al., 2014. Therefore, the process implemented here is of my own design. The logic behind it is, we are facing a signal away from the baseline it should be on, which is 0. The filter is trying to get the signal back on this baseline. As the signal get filtered closer and closer to the baseline, the number of 0 value increase.
+				The process to find the optimal lambda for the filter is not detailed in Fasano et al., 2014. Therefore, the process implemented here is of my own design. The logic behind it is, we are facing a signal away from the baseline it should be on, which is 0. The filter is trying to get the signal back on this baseline. As the signal get filtered closer and closer to the baseline, the number of 0 value increase.
 				We therefore can formulate the problem as a sparsity problem. The gradient descent work on the following logic: 
 				if sparsity of sFilt(n-1) - sparsity of sFilt(n) < 0 then stop --> we found the optimal lambda.
 				The formula used have been chosen from Hurley, N., & Rickard, S. (2009). Comparing measures of sparsity. IEEE Transactions on Information Theory, 55(10), 4723-4741, and selected for their behavior that seemed to get close to the optimal lambda found experimentally.
 			</dd>
 		</dl>
-		<h2>Technologies</h2>
+		<h2 id="Technologies">Technologies</h2>
 		<p>
 			The project has been developped on MATLAB 2018a 9.4.0.813654, on windows 10 64 bits.
 		</p>
 
-		<h2>Setup</h2>
+		<h2 id="Setup">Setup</h2>
 		<p>
 			The filters are matlab function, to run them, just download them then add them to your matlab path.
 		</p>
@@ -150,7 +150,7 @@
 			Robinault Lucien (2021). EMG preprocessing tools V1.0.0 (https://github.com/TSS-22/EMG-preprocessing-tools), GitHub. DOI: 10.5281/zenodo.4441389
 		</p>
 
-		<h2>Sources</h2>
+		<h2 id="Sources">Sources</h2>
 		<ul>
 			<li>
 				Al Harrach, M., Boudaoud, S., Hassan, M., Ayachi, F. S., Gamet, D., Grosset, J. F., & Marin, F. (2017). Denoising of HD-sEMG signals using canonical correlation analysis. Medical & biological engineering & computing, 55(3), 375-388. DOI: 10.1007/s11517-016-1521-x
@@ -169,7 +169,7 @@
 			</li>
 		</ul>
 
-		<h2>Disclaimer</h2>
+		<h2 id="Disclaimer">Disclaimer</h2>
 		<p>
 			The information and tools contained in this repository are provided in good faith and no warranty, representation, statement or undertaking is given regarding any information or tool connected with this repository and any warranty, representation, statement or undertaking whatsoever that may be expressed or implied by statute, custom or otherwise is hereby expressly excluded.
 			The use of the tools in this repository and any information in this repository is entirely at the risk of the user.
@@ -177,7 +177,7 @@
 		</p>
 	</article>
 	<footer>
-		<h2>Contact</h2>
+		<h2 id="Contact">Contact</h2>
 		<p>lucien.robinault@protonmail.com</p>
 	</footer>
 </body>
