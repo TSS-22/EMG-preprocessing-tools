@@ -19,6 +19,8 @@ The following function remove ECG contamination from High Density EMG signals. T
 - A moving average filter has been added to the pre processing step in order to smooth out potential artifacts on the ECG ICA component that could appear in field conditions. Those artifact would be detected as potential ECG spike and would teherefor make the component fail the RR interval check.
 - To improve reliability of the RR interval check, it had been added a 10% margin of error, meaning at least 90% of the peak of the tested component should meet the RR interval check requirement.
 
+This filter require the fastica.m function from https://github.com/davidkun/FastICA.
+
 ### Example
 Before:
 ![Before signals](./Miscellaneous/img/rawSig.png)
