@@ -2,6 +2,9 @@ function [EMG_proper, ECG_proper] = ECGartRm(sigToFilt, fqAcq)
 %% Based on Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848.
 % This function filter out ECG componant from High Density EMG signal
 % Contact: lucien.robinault@protonmail.com
+%
+% Dependency:
+% fastica.m --> https://github.com/davidkun/FastICA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INPUTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
