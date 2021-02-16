@@ -2,7 +2,7 @@
 Functions to denoise High Density EMG signals.
 
 ## Table of Contents
-* [EMG Contamination](#EMG-Contamination)
+* [ECG Contamination](#ECG-Contamination)
 * [Movement artifact, PLI, WGI contamination](#Movement-artifact,-PLI,-WGI-contamination)
 * [Baseline wander filter](#Baseline-wander-filter)
 * [Technologies](#Technologies)
@@ -12,7 +12,7 @@ Functions to denoise High Density EMG signals.
 * [Disclaimer](#Disclaimer)
 * [Contact](#Contact)
 
-## EMG Contamination
+## ECG Contamination
 This ECG-artifact filter is based on the paper Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848. DOI: 10.1016/j.medengphy.2010.05.007 and on "Rectification and non-linear pre-processing of EMG signals for cortico-muscular analysis." from Myers et al. DOI: 10.1016/s0165-0270(03)00004-9 for the pre-processing of the HD EMG.
 
 The following function remove ECG contamination from High Density EMG signals. This is the matlab implementation of the work described in "Mak, J. N., Hu, Y., & Luk, K. D. (2010). An automated ECG-artifact removal method for trunk muscle surface EMG recordings. Medical engineering & physics, 32(8), 840-848." With the following changes:
