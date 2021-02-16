@@ -7,7 +7,7 @@ function EMG_proper = BWfilt(sigToFilt, varargin)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INPUTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   sigToFilt --> Signals to filter (must be of a shape N*1
+%   sigToFilt --> Signals to filter (must be of a shape N*1)
 %       setpL --> The step used in the gradient descent function to find the
 %                 optimal lambda. The early test showed good result with
 %                 lambda around the [600:700] mark.
