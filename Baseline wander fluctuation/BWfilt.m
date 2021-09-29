@@ -7,7 +7,7 @@ function EMG_proper = BWfilt(sigToFilt, varargin)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INPUTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   sigToFilt --> Signals to filter (must be of a shape N*1)
+%   sigToFilt --> Signals to filter (must be of a shape N*1
 %       setpL --> The step used in the gradient descent function to find the
 %                 optimal lambda. The early test showed good result with
 %                 lambda around the [600:700] mark.
@@ -74,6 +74,10 @@ expectedFormula = [1, 2 ,3];
 defaulta = 1;
 defaultb = 2;
 defaultx = 2;
+
+% To prevent the need to to that for the user (I am too lazy to go back
+% into the math formula of the filter to correct that directly)
+sigToFilt = sigToFilt';
 
 % Function handle for the testing if parameter value is numeric
 validNumericParameter = @(x) isnumeric(x);
@@ -206,4 +210,7 @@ switch inParser.Results.formulaUsed
             sparsity(3) = sum(-log(1+EMG_proper));
         end
 end
+
+% Same as for sigToFilt
+EMG_proper = EMG_proper';
 end
