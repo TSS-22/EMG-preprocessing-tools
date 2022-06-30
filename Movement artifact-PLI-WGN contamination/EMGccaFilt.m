@@ -44,7 +44,7 @@ laggedSigToFilter = [sigToFilter(:, end) sigToFilter(:, 1:(end-1))];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 intensityRatio = zeros(1,compU);
 
-%% Calculus of the Inensity Ratio (IR)
+%% Calculus of the Intensity Ratio (IR)
 for i = 1:1:compU
     % Equation (6) from Al Harrach et al., 2016
     intensityRatio(i) =  (sum(abs(U(:,i)))/length(U))*...
