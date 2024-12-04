@@ -24,6 +24,9 @@ function EMG_proper = BWfilt(sigToFilt, varargin)
 %                 default value = 1;
 %           b --> parameter from the sparsity formula 2
 %                 default value = 2;
+%  solverUsed --> Solver used, either Matlab one (1) (appears to be faulty) or
+%                 or the Golub one (0).
+%                 default value = 0 (Golub)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OUTPUTS
@@ -74,6 +77,7 @@ expectedFormula = [1, 2 ,3];
 defaulta = 1;
 defaultb = 2;
 defaultx = 2;
+defaultSolver = 0;
 
 % To prevent the need to to that for the user (I am too lazy to go back
 % into the math formula of the filter to correct that directly)
@@ -99,6 +103,9 @@ addParameter(inParser,'x',defaultx,validNumericParameter);
 addParameter(inParser,'a',defaulta,validNumericParameter);
 addParameter(inParser,'b',defaultb,validNumericParameter);
 
+% Solver parameter
+addParameter(inParser,'solver',defaultSolver,validNumericParameter);
+
 % Parse the argument into the IP object
 parse(inParser,sigToFilt,varargin{:});
 
@@ -115,7 +122,13 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            switch inParser.Results.solver 
+                case 1
+                    EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+                otherwise
+                    EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            end
+            
             
             % Compute the sparsity value of the filtered signal
             sparsity(stepInit) = sqrt(sum(EMG_proper.^inParser.Results.x));
@@ -133,7 +146,12 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            switch inParser.Results.solver 
+                case 1
+                    EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+                otherwise
+                    EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            end
             
             % Refresh the sparsity values to n-2, n-1, n
             sparsity(1) = sparsity(2);
@@ -150,7 +168,12 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            switch inParser.Results.solver 
+                case 1
+                    EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+                otherwise
+                    EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            end
             
             % Compute the sparsity value of the filtered signal
             sparsity(stepInit) = -sum(tanh((inParser.Results.a*EMG_proper).^inParser.Results.b));
@@ -167,7 +190,12 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            switch inParser.Results.solver 
+                case 1
+                    EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+                otherwise
+                    EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            end
             
             % Refresh the sparsity values to n-2, n-1, n
             sparsity(1) = sparsity(2);
@@ -184,7 +212,12 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            switch inParser.Results.solver 
+                case 1
+                    EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+                otherwise
+                    EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            end
             
             % Compute the sparsity value of the filtered signal
             sparsity(stepInit) = sum(-log(1+EMG_proper));
@@ -202,7 +235,12 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            switch inParser.Results.solver 
+                case 1
+                    EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+                otherwise
+                    EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
+            end
             
             % Refresh the sparsity values to n-2, n-1, n
             sparsity(1) = sparsity(2);
