@@ -58,7 +58,7 @@ for i = 1:1:rowIcaSig
     
     % 1. Scan the signals(n) which may be expected to contain a series
     %   of peaks and determine the maximum value Smax.
-    Smax = max(sigToFiltH(i,:));
+    Smax = max(abs(sigToFiltH(i,:)));
     
     % 2.Define a threshold as a fraction of the maximum,Th = 0.6 Smax
     threshold = 0.6*Smax;
