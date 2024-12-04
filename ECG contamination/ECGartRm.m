@@ -20,8 +20,15 @@ function [EMG_proper, ECG_proper] = ECGartRm(sigToFilt, fqAcq)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PART 1: Signal pre-processing and fastICA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Limit the number of ICA component extracted (default = 30% of the number 
+% of sources/channels of the signal to filter)
+limitIcaComponents = 0.3; % Needs to be >0 and <=1
+[~, rowSigToFilt] = size(sigToFilt);
+
 % fastICA
-[ICAsig, sepMat, mixMat] = fastica(sigToFilt);
+
+[ICAsig, sepMat, mixMat] = fastica(sigToFilt, 'numOfIC', round(rowSigToFilt*limitIcaComponents));
 [rowIcaSig, colIcaSig] = size(ICAsig);
 EMGvsECG = zeros(rowIcaSig, 1);
 
