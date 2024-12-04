@@ -115,7 +115,7 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
             
             % Compute the sparsity value of the filtered signal
             sparsity(stepInit) = sqrt(sum(EMG_proper.^inParser.Results.x));
@@ -133,7 +133,7 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
             
             % Refresh the sparsity values to n-2, n-1, n
             sparsity(1) = sparsity(2);
@@ -150,7 +150,7 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
             
             % Compute the sparsity value of the filtered signal
             sparsity(stepInit) = -sum(tanh((inParser.Results.a*EMG_proper).^inParser.Results.b));
@@ -167,7 +167,7 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
             
             % Refresh the sparsity values to n-2, n-1, n
             sparsity(1) = sparsity(2);
@@ -184,7 +184,7 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
             
             % Compute the sparsity value of the filtered signal
             sparsity(stepInit) = sum(-log(1+EMG_proper));
@@ -202,7 +202,7 @@ switch inParser.Results.formulaUsed
             systemD = spdiags([-lambda*ones(1,lengthSignal); [lambda+1, 2*lambda*ones(1,lengthSignal-2)+1, lambda+1]; -lambda*ones(1,lengthSignal)]',-1:1,lengthSignal,lengthSignal);
             % Eq (16) developped and optimized from Fasano et al., 2014
             % This is the actual filtering process
-            EMG_proper = inParser.Results.sigToFilt-systemD\inParser.Results.sigToFilt;
+            EMG_proper = inParser.Results.sigToFilt-stpdSysSolv(systemD,inParser.Results.sigToFilt);
             
             % Refresh the sparsity values to n-2, n-1, n
             sparsity(1) = sparsity(2);
